@@ -16,12 +16,12 @@
         <EditText
             android:id="@+id/editTextTextPersonName"
             android:layout_width="match_parent"
-            android:layout_height="143dp"
+            android:layout_height="200dp"
             android:ems="10"
             android:hint="粘贴至此"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine"
             android:textIsSelectable="true"
-            android:textSize="20sp"
+            android:textSize="18sp"
             tools:layout_marginTop="20dp" />
 
         <Button
@@ -29,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Check"
+            android:onClick="getdata"
             tools:layout_marginTop="20dp" />
 
         <TextView
@@ -36,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="链接"
-            android:textSize="20sp"
+            android:textSize="18sp"
             tools:layout_marginTop="20dp" />
 
         <LinearLayout
@@ -65,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="提取码"
-            android:textSize="20sp"
+            android:textSize="18sp"
             tools:layout_marginTop="20dp" />
 
         <Button

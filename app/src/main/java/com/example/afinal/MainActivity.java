@@ -2,6 +2,10 @@ package com.example.afinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -23,22 +27,65 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getdata(View view){
+
         inp = findViewById(R.id.editTextTextPersonName);
-        if(inp.getText().toString()==null) {
-            Toast.makeText(this, "please paste the context", Toast.LENGTH_SHORT).show();
-        }
-
         String temp = inp.getText().toString();
-        link = getLink(temp);
-        code = getCode(temp);
-        if(link==null||code==null){
-            Toast.makeText(this, "格式不正确", Toast.LENGTH_SHORT).show();
+        if (temp.equals("")) {
+            Toast.makeText(getApplicationContext(), "请粘贴文本", Toast.LENGTH_SHORT).show();
+        }else {
+            link = getLink(temp);
+            code = getCode(temp);
+            tv1= findViewById(R.id.textView);
+            tv1.setText(link);
+            tv2= findViewById(R.id.textView2);
+            tv2.setText(code);
         }
-        tv1= findViewById(R.id.textView);
-        tv1.setText(link);
-        tv2= findViewById(R.id.textView2);
-        tv2.setText(code);
 
+    }
+
+    public void enter(View view){
+        tv1= findViewById(R.id.textView);
+        String myurl = tv1.getText().toString();
+        if(!myurl.equals("false")&&!myurl.equals("")) {
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            Uri content_url = Uri.parse(myurl);
+            intent.setData(content_url);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "链接获取失败", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void copy1(View view){
+        tv1= findViewById(R.id.textView);
+        String text = tv1.getText().toString();
+        if(!text.equals("false")&&!text.equals("")){
+            ClipboardManager myClipboard;
+            myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+            ClipData myClip;
+            myClip = ClipData.newPlainText("text", text);
+            myClipboard.setPrimaryClip(myClip);
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "链接获取失败", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void copy2(View view){
+        tv2= findViewById(R.id.textView2);
+        String text = tv2.getText().toString();
+        if(!text.equals("false")&&!text.equals("")){
+            ClipboardManager myClipboard;
+            myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+            ClipData myClip;
+            myClip = ClipData.newPlainText("text", text);
+            myClipboard.setPrimaryClip(myClip);
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "提取码获取失败", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public static String getLink(String text) {
@@ -60,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
         String str = "";
         if (m.find()) {
             str = m.group(1);
+        }else {
+            str = "false";
         }
         return str;
     }

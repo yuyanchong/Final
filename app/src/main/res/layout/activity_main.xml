@@ -11,6 +11,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
         <Button
@@ -18,7 +22,7 @@
             android:layout_width="106dp"
             android:layout_height="40dp"
             android:onClick="exit0"
-            android:text="Back" />
+            android:text="返回" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -36,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:onClick="getdata"
-            android:text="Check"
+            android:text="提取"
             tools:layout_marginTop="15dp" />
 
         <TextView
@@ -59,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="enter"
-                android:text="Enter" />
+                android:text="浏览" />
 
             <Button
                 android:id="@+id/button3"
@@ -67,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="copy1"
-                android:text="Copy" />
+                android:text="复制" />
         </LinearLayout>
 
         <TextView
@@ -83,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="copy2"
-            android:text="COPY"
+            android:text="复制"
             tools:layout_marginTop="20dp" />
 
         <LinearLayout
@@ -98,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="adding"
-                android:text="ADD" />
+                android:text="添加记录" />
 
             <Button
                 android:id="@+id/button11"
@@ -106,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="deleting"
-                android:text="Deleteall" />
+                android:text="清空记录" />
         </LinearLayout>
 
     </LinearLayout>
